@@ -31,8 +31,6 @@ class BitExchangeAdvanced
         Console.WriteLine("Enter K (number of bits in a group) : ");
         int groupLenght = int.Parse(Console.ReadLine());
 
-        // how to program K to represent the right binary value for the groups of bits !?
-        // k = 
 
         if (firstPosition + groupLenght > 32 || secondPosition + groupLenght > 32)
         {
@@ -48,13 +46,13 @@ class BitExchangeAdvanced
         else if ((firstPosition + groupLenght == 32) || (secondPosition + groupLenght == 32))
         {
 
-            Console.WriteLine("You are trying to move bit group to the border\n of 32-bit integer and write on the sign bit!"); 
-      
+            Console.WriteLine("You are trying to move bit group to the border\n of 32-bit integer and write on the sign bit!");
+
         }
 
         else
         {
-            for (int i = firstPosition, y = secondPosition, j = groupLenght; (i < 32 && y < 32) && j > 1; i++, y++, j-- )
+            for (int i = firstPosition, y = secondPosition, j = groupLenght; (i <= 32 && y <= 32) && j > 1; i++, y++, j-- )
             {
 
                 long bitGroupOne = (j << i) & num;
@@ -73,7 +71,7 @@ class BitExchangeAdvanced
 
             Console.WriteLine(num);
             Console.WriteLine("Your number in bits " + Convert.ToString(num, 2).PadLeft(32, '0'));
-            // not going to happen without a loop .. try for tommorow and revise the code inside the loop
+           
             
         }
 
